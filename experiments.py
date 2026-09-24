@@ -466,6 +466,9 @@ def main():
         "DemoRFAUC": ab("Demographics only", "Random Forest", "roc_auc"),
         "DemoLRAUC": ab("Demographics only", "Logistic Regression", "roc_auc"),
         "DemoCNNAcc": ab("Demographics only", "1D CNN", "accuracy"),
+        "DemoMaxAUC": f3(max(agg3.loc[("Demographics only", m), ("roc_auc", "mean")]
+                             for m in ["Logistic Regression", "Random Forest", "1D CNN"])),
+        "CNNEOneErrors": int(cnn_clin.fn + cnn_clin.fp),
         "ItemsCNNAcc": ab("Q-CHAT-10 items only", "1D CNN", "accuracy"),
         "ItemsLRAcc": ab("Q-CHAT-10 items only", "Logistic Regression", "accuracy"),
         "TopItemCNN": item_imp[("1D CNN", "mean")].idxmax(),

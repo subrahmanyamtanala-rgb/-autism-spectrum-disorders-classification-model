@@ -1,0 +1,24 @@
+\begin{table}[t]
+\centering
+\caption{Layer-by-layer structure of the 1D CNN, taken from the executable model (\texttt{model.summary()}).}
+\label{tab:params}
+\footnotesize
+\begin{tabular}{llr}
+\toprule
+Layer (configuration) & Output shape & Parameters \\
+\midrule
+Input & $29\times 1$ & 0 \\
+Conv1D (32{,} $k$=3{,} ReLU) & 29$\times$32 & 128 \\
+Conv1D (64{,} $k$=3{,} ReLU) & 29$\times$64 & 6{,}208 \\
+MaxPool1D (size 2) & 14$\times$64 & 0 \\
+Dropout (0.25) & 14$\times$64 & 0 \\
+Conv1D (64{,} $k$=3{,} ReLU) & 14$\times$64 & 12{,}352 \\
+Flatten & 896 & 0 \\
+Dense (64{,} relu) & 64 & 57{,}408 \\
+Dropout (0.3) & 64 & 0 \\
+Dense (1{,} sigmoid) & 1 & 65 \\
+\midrule
+Total (all trainable) & & 76{,}161 \\
+\bottomrule
+\end{tabular}
+\end{table}

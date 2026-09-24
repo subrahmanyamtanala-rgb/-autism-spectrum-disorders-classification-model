@@ -8,7 +8,7 @@ network and machine learning on Q-CHAT-10 behavioural data*)
 We thank the reviewer for a careful and constructive review. We agree with the central assessment: the manuscript's
 contribution is its analysis of the Q-CHAT-10 benchmark, not the CNN. We have revised the paper around that
 contribution. Each comment is answered below, and the manuscript location of each change is given. All numbers
-quoted here come from the revised experiments ({NSplits} splits), which replace the earlier 5-split results.
+quoted here come from the revised experiments (20 splits), which replace the earlier 5-split results.
 
 ---
 
@@ -34,13 +34,13 @@ work rather than claiming it.
 ### 2. The CNN is not a convincing contribution (§3)
 
 **Agreed; the paper has been reframed.** The CNN is now one of eight models in a reproducibility analysis. The paper
-states that logistic regression reproduces the label without error on every split (accuracy {LRAcc} ± {LRAccStd}),
-that the CNN ({CNNAcc} ± {CNNAccStd}) does not improve on it, and that a learned model offers no practical advantage
+states that logistic regression reproduces the label without error on every split (accuracy 1.000 ± 0.000),
+that the CNN (0.997 ± 0.004) does not improve on it, and that a learned model offers no practical advantage
 over direct scoring for this label (Abstract; Discussion, "Role of the CNN").
 
 ### 3. CNN parameter count (§4)
 
-**We re-checked this, and the reported count of {CNNParams} is correct.** The difference comes from the pooling
+**We re-checked this, and the reported count of 76,161 is correct.** The difference comes from the pooling
 output length. Keras `MaxPooling1D(2)` with the default `valid` padding uses floor rounding, so 29 → 14 positions,
 not 15:
 
@@ -55,7 +55,7 @@ not 15:
 | Dense(1) | 1 | 65 |
 | **Total** | | **76,161** |
 
-As requested, the paper now includes this layer-by-layer table (new Table 3). It is generated directly from the
+As requested, the paper now includes this layer-by-layer table (new Table 2). It is generated directly from the
 executable model (`model.summary()`), so the paper and the code cannot disagree. Section 3.5 notes the floor
 rounding.
 
@@ -88,11 +88,11 @@ demographic-feature results reflect our parameter choices.
 
 ### 6. Statistical rigour (§6)
 
-- **Splits increased from 5 to {NSplits}.** Table 2 now reports mean ± SD and the 2.5th–97.5th percentile range of
+- **Splits increased from 5 to 20.** Table 3 now reports mean ± SD and the 2.5th–97.5th percentile range of
   accuracy across splits. We state that the splits overlap, so the SD describes split-to-split variability rather
-  than a standard error. The number of unique test records covered ({NUniqueTest} of {NRecords}) is reported.
+  than a standard error. The number of unique test records covered (1045 of 1054) is reported.
 - **Confidence intervals.** The new Table 4 gives Wilson 95% CIs for sensitivity and specificity on the held-out E1
-  split, with its size stated ({NTest} records: {NTestPos} positive, {NTestNeg} negative).
+  split, with its size stated (211 records: 145 positive, 66 negative).
 - **Paired comparisons.** The new Table 4 also gives exact McNemar tests of every model against logistic regression
   on the same test records.
 - **DeLong's test** was considered but not used, because several AUCs equal 1.000 and the test is uninformative
@@ -110,33 +110,33 @@ indirectly. This result therefore says nothing about the clinical value of these
 
 ### 9. Permutation importance (§11)
 
-- Permutations increased from 10 to {NPerm} per variable.
-- Evaluation now covers {NImpSplits} splits instead of one, and error bars (SD) are shown.
+- Permutations increased from 10 to 30 per variable.
+- Evaluation now covers 5 splits instead of one, and error bars (SD) are shown.
 - Logistic regression was added to the importance analysis.
-- A new panel (Fig. 8b) shows the logistic-regression coefficients. The item coefficients lie between {ItemCoefMin}
-  and {ItemCoefMax}, close to the scoring rule's equal weights.
+- A new panel (Fig. 8b) shows the logistic-regression coefficients. The item coefficients lie between 1.93
+  and 2.81, close to the scoring rule's equal weights.
 - The caveat that the rankings are not a clinical ordering has been kept and made more prominent.
 
 ### 10. Clinical metrics (§12)
 
 The new Table 4 reports sensitivity, specificity, PPV, NPV, LR+ and LR−. It also reports PPV re-weighted to a 3%
 population prevalence, from both the point estimates and the lower confidence bounds. This produced a new finding:
-even for the error-free logistic regression, the lower specificity bound ({LRSpecLo} on {NTestNeg} negatives)
-implies a PPV as low as **{LRPPVpopLo}** at 3% prevalence. The prevalence figure now uses the most recent US
+even for the error-free logistic regression, the lower specificity bound (0.945 on 66 negatives)
+implies a PPV as low as **0.354** at 3% prevalence. The prevalence figure now uses the most recent US
 surveillance (1 in 31, 2022; Shaw et al., 2025). Calibration and subgroup analyses are listed as future work,
 because they are not meaningful on this synthetic label.
 
 ### 11. Reproducibility details (§13, §17)
 
 Section 3.5 and the new "Computational environment" paragraph now report:
-- Software versions: Python {EnvPython}, TensorFlow {EnvTF}, scikit-learn {EnvSklearn}, NumPy {EnvNumpy},
-  pandas {EnvPandas}.
-- Hardware: CPU only ({EnvCPU}, {EnvNCPU} cores).
+- Software versions: Python 3.11.15, TensorFlow 2.21.0, scikit-learn 1.9.1, NumPy 2.4.6,
+  pandas 3.0.6.
+- Hardware: CPU only (Intel Xeon Processor @ 2.10GHz, 4 cores).
 - Seeds for every experiment, and that TensorFlow's deterministic-operation mode is enabled.
 - The initialisation scheme (Glorot-uniform kernels, zero biases).
 - The validation split. It is now class-stratified (changed from Keras `validation_split`, which takes the last
   15% unstratified) and drawn per run with the run's seed.
-- The number of CNN trainings: {NSplits} in E2, 3 × {NSplits} in E3 and {NInits} in E5.
+- The number of CNN trainings: 20 in E2, 3 × 20 in E3 and 10 in E5.
 
 The repository README separates the synthetic-data command from the public-data command. It also warns that the
 paper's text describes the synthetic surrogate and would need rewriting after a public-data run. A single command
@@ -145,8 +145,8 @@ regenerates every table, figure and in-text number (`experiments.py` writes `gen
 ### 12. Figures (§14)
 
 - **Fig. 6 (ROC):** a zoomed inset (FPR ≤ 0.25, TPR ≥ 0.75) was added.
-- **Fig. 7 (learning curves):** now mean ± SD over {NInits} initialisations (new experiment E5). CNN accuracy across
-  initialisations was {InitAccMean} ± {InitAccStd}.
+- **Fig. 7 (learning curves):** now mean ± SD over 10 initialisations (new experiment E5). CNN test accuracy across initialisations was 1.000 ± 0.000. The original seed-42 run made
+  2 errors on the same test set, which the paper now reports.
 - **Fig. 8 (importance):** now has error bars and a coefficient panel.
 
 ### 13. Wording (§15)
@@ -155,7 +155,7 @@ regenerates every table, figure and in-text number (`experiments.py` writes `gen
   Missed cases delay intervention, while false positives add family burden and demand on assessment services.
   Operating points should therefore be chosen for the intended setting."*
 - "LR should be preferred" was replaced with a statement that LR "matches its performance with about 30 parameters
-  instead of {CNNParams}, trains in milliseconds, and exposes coefficients that can be checked directly against the
+  instead of 76,161, trains in milliseconds, and exposes coefficients that can be checked directly against the
   scoring rule".
 
 ---

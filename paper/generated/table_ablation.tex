@@ -1,6 +1,6 @@
 \begin{table}[t]
 \centering
-\caption{Feature-subset ablation (mean $\pm$ std over 5 splits).}
+\caption{Feature-subset ablation (mean $\pm$ SD over 20 splits).}
 \label{tab:ablation}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
@@ -10,18 +10,18 @@ Model & Accuracy & F1 & AUC \\
 \midrule
 \multicolumn{4}{l}{\textit{Q-CHAT-10 items only}} \\
 \quad Logistic Regression & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 \\
-\quad Random Forest & 0.979 $\pm$ 0.006 & 0.985 $\pm$ 0.005 & 0.998 $\pm$ 0.002 \\
-\quad 1D CNN & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 \\
+\quad Random Forest & 0.981 $\pm$ 0.010 & 0.986 $\pm$ 0.007 & 0.999 $\pm$ 0.001 \\
+\quad 1D CNN & 1.000 $\pm$ 0.001 & 1.000 $\pm$ 0.001 & 1.000 $\pm$ 0.000 \\
 \addlinespace
 \multicolumn{4}{l}{\textit{Demographics only}} \\
-\quad Logistic Regression & 0.680 $\pm$ 0.007 & 0.808 $\pm$ 0.005 & 0.541 $\pm$ 0.046 \\
-\quad Random Forest & 0.614 $\pm$ 0.026 & 0.732 $\pm$ 0.024 & 0.530 $\pm$ 0.017 \\
-\quad 1D CNN & 0.687 $\pm$ 0.000 & 0.815 $\pm$ 0.000 & 0.541 $\pm$ 0.031 \\
+\quad Logistic Regression & 0.674 $\pm$ 0.013 & 0.804 $\pm$ 0.010 & 0.531 $\pm$ 0.040 \\
+\quad Random Forest & 0.597 $\pm$ 0.030 & 0.717 $\pm$ 0.025 & 0.515 $\pm$ 0.043 \\
+\quad 1D CNN & 0.686 $\pm$ 0.004 & 0.814 $\pm$ 0.002 & 0.530 $\pm$ 0.042 \\
 \addlinespace
 \multicolumn{4}{l}{\textit{All features}} \\
 \quad Logistic Regression & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 \\
-\quad Random Forest & 0.980 $\pm$ 0.005 & 0.986 $\pm$ 0.004 & 0.999 $\pm$ 0.001 \\
-\quad 1D CNN & 0.999 $\pm$ 0.002 & 0.999 $\pm$ 0.002 & 1.000 $\pm$ 0.000 \\
+\quad Random Forest & 0.980 $\pm$ 0.009 & 0.986 $\pm$ 0.007 & 0.999 $\pm$ 0.001 \\
+\quad 1D CNN & 0.997 $\pm$ 0.004 & 0.998 $\pm$ 0.003 & 1.000 $\pm$ 0.000 \\
 \bottomrule
 \end{tabular}
 \end{table}
