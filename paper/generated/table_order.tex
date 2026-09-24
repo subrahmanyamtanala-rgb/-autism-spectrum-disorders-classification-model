@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{CNN sensitivity to input-column order (E6): mean $\pm$ SD and minimum over the first 5 E2 splits. Random orders use fixed permutation seeds shared across splits.}
+\label{tab:order}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccc}
+\toprule
+Column order & Accuracy & Min.\ accuracy & AUC \\
+\midrule
+Original (items first) & 0.997 $\pm$ 0.004 & 0.991 & 1.000 $\pm$ 0.000 \\
+Reversed (items last) & 0.997 $\pm$ 0.003 & 0.995 & 1.000 $\pm$ 0.000 \\
+Random permutation 1 & 0.989 $\pm$ 0.003 & 0.986 & 0.999 $\pm$ 0.000 \\
+Random permutation 2 & 0.988 $\pm$ 0.004 & 0.981 & 1.000 $\pm$ 0.001 \\
+Random permutation 3 & 0.993 $\pm$ 0.009 & 0.981 & 1.000 $\pm$ 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table}

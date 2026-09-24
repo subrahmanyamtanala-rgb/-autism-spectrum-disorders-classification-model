@@ -15,22 +15,22 @@ priority items; each is answered below. All numbers are from the regenerated exp
 **Added.** The published rule applied with no learning, ŷ = 1[Σ A_j > 3], is now the first row of the main results
 (Table 3), the screening-metrics table (Table 4), the confusion matrices (Fig. 5) and the ROC curves (Fig. 6). Its
 ROC score is the item sum. All McNemar tests now compare each model with this rule rather than with logistic
-regression. Results over {NSplits} splits: the rule scores accuracy {RuleAcc} and AUC {RuleAUC}, as expected.
-Logistic regression matches it on every split ({LRAcc} ± {LRAccStd}; McNemar p = {LRMcNemarP} on E1). The CNN
-reaches {CNNAcc} ± {CNNAccStd} (p = {CNNMcNemarP}). The Abstract, Discussion and Conclusion now state that neither
+regression. Results over 20 splits: the rule scores accuracy 1.000 and AUC 1.000, as expected.
+Logistic regression matches it on every split (1.000 ± 0.000; McNemar p = 1.000 on E1). The CNN
+reaches 0.997 ± 0.004 (p = 0.500). The Abstract, Discussion and Conclusion now state that neither
 learned model improves on direct scoring.
 
 ### 2. "20 independent splits" (§9)
 
-**Corrected.** The protocol now reads "the direct rule and all eight models on {NSplits} repeated stratified 80/20
+**Corrected.** The protocol now reads "the direct rule and all eight models on 20 repeated stratified 80/20
 holdout splits of the same benchmark (seeds 0–19). These are repeated random partitions, not independent datasets."
 The word "independent" no longer describes the splits anywhere in the paper.
 
 ### 3. Does E5 include the seed-42 run? (§10)
 
-**It does not, and the paper now says so explicitly.** E5 uses seeds {InitSeedMin}–{InitSeedMax}, which set both
+**It does not, and the paper now says so explicitly.** E5 uses seeds 1000–1009, which set both
 the initialisation and the validation subset. The E1 run uses seed 42 and is not one of the ten. The seed-42 run
-made {CNNEOneErrors} errors on the E1 test set, while the ten E5 runs scored {InitAccMean} ± {InitAccStd}. Both
+made 2 errors on the E1 test set, while the ten E5 runs scored 1.000 ± 0.000. Both
 facts are reported in Section 4.3, and the seeds are listed in the new Appendix A.
 
 ### 4. "A linear model represents this function exactly" (§5)
@@ -45,7 +45,7 @@ threshold classification exactly. This lets LR match the direct rule on every sp
   This says nothing about the value of other attributes for clinical endpoints."
 - **Abstract:** "near chance for this label".
 - **Introduction contributions:** "which inputs the models use to reproduce this label".
-- **Section 4.4:** "for this threshold-defined label".
+- **Section 4.5:** "for this threshold-defined label".
 
 ### 6. The 3% prevalence is illustrative (§8)
 
@@ -59,18 +59,19 @@ specificity 0.89; Allison et al., 2012):
 
 | Prevalence | Rule / LR, value at lower bounds | Published Q-CHAT-10 |
 |---|---|---|
-| 1% | {PPVRuleLoOne} | {PPVPubOne} |
-| 3% | {LRPPVpopLo} | {PPVPubThree} |
-| 10% | {PPVRuleLoTen} | {PPVPubTen} |
+| 1% | 0.152 | 0.077 |
+| 3% | 0.354 | 0.204 |
+| 10% | 0.663 | 0.479 |
 
 ### 7. CNN feature-order sensitivity (§12)
 
-**Added as experiment E6** (Section 4.4, Table 6). The CNN was retrained on the first {NOrderSplits} splits with
-the columns in the original order (items first), reversed (items last), and in {NRandOrders} random permutations
-with fixed seeds. Mean accuracy was {OrderOrigAcc} for the original order, {OrderRevAcc} reversed, and
-{OrderRandAcc} ± {OrderRandAccStd} for the random orders (minimum {OrderRandAccMin}). The CNN's result therefore
-does not depend on item adjacency. Section 3.5 now notes that the non-item variables have no natural order, and
-the Discussion states that E6 gives no support to the idea that convolution over item neighbourhoods drives the
+**Added as experiment E6** (Section 4.4, Table 6). The CNN was retrained on the first 5 splits with
+the columns in the original order (items first), reversed (items last), and in 3 random permutations
+with fixed seeds. Mean accuracy was 0.997 for the original order, 0.997 reversed, and
+0.990 ± 0.006 for the random orders (minimum 0.981), with AUC essentially unchanged
+(1.000). Scattering the items therefore costs less than one percentage point of accuracy: the CNN's result
+depends only marginally on item adjacency. Section 3.5 now notes that the non-item variables have no natural order, and
+the Discussion states that E6 gives little support to the idea that convolution over item neighbourhoods drives the
 result.
 
 ### 8. Synthetic *benchmark*, not *surrogate* (§3, §20.8)
@@ -92,7 +93,7 @@ The new **Appendix A, Table A.1** lists the seed for each component:
 - benchmark generator and E1: 42;
 - E2 and E3 splits: 0–19;
 - E4 permutations: 0;
-- E5: {InitSeedMin}–{InitSeedMax};
+- E5: 1000–1009;
 - E6 splits: 0–4, and column permutations: 100–102.
 
 ### 11. Machine-readable results
@@ -101,8 +102,8 @@ means and SDs, E4 importance and coefficients, E5, E6) along with the seeds and 
 provided for E1–E6.
 
 ### 12. Environment file
-`requirements-lock.txt` pins the exact versions used (Python {EnvPython}, TensorFlow {EnvTF}, scikit-learn
-{EnvSklearn}, NumPy {EnvNumpy}, pandas {EnvPandas}, SciPy, Keras, Matplotlib). `requirements.txt` keeps the
+`requirements-lock.txt` pins the exact versions used (Python 3.11.15, TensorFlow 2.21.0, scikit-learn
+1.9.1, NumPy 2.4.6, pandas 3.0.6, SciPy, Keras, Matplotlib). `requirements.txt` keeps the
 minimum versions.
 
 ### 13. Exact reproduction command

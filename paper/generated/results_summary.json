@@ -1,0 +1,1118 @@
+{
+  "data_source": "synthetic",
+  "seeds": {
+    "generator": 42,
+    "e1_split": 42,
+    "e2_splits": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "e5_cnn_inits": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009
+    ],
+    "e6_permutations": [
+      100,
+      101,
+      102
+    ],
+    "permutation_importance": 0
+  },
+  "e1_clinical": {
+    "Q-CHAT-10 rule": {
+      "tp": 145,
+      "fn": 0,
+      "tn": 66,
+      "fp": 0,
+      "sens": 1.0,
+      "sens_lo": 0.9741900114,
+      "sens_hi": 1.0,
+      "spec": 1.0,
+      "spec_lo": 0.9449955327,
+      "spec_hi": 1.0,
+      "ppv": 1.0,
+      "npv": 1.0,
+      "lr_pos": null,
+      "lr_neg": 0.0,
+      "ppv_pop": 1.0,
+      "ppv_pop_lo": 0.3539075861,
+      "mcnemar_b": 0,
+      "mcnemar_c": 0,
+      "mcnemar_p": 1.0
+    },
+    "Logistic Regression": {
+      "tp": 145,
+      "fn": 0,
+      "tn": 66,
+      "fp": 0,
+      "sens": 1.0,
+      "sens_lo": 0.9741900114,
+      "sens_hi": 1.0,
+      "spec": 1.0,
+      "spec_lo": 0.9449955327,
+      "spec_hi": 1.0,
+      "ppv": 1.0,
+      "npv": 1.0,
+      "lr_pos": null,
+      "lr_neg": 0.0,
+      "ppv_pop": 1.0,
+      "ppv_pop_lo": 0.3539075861,
+      "mcnemar_b": 0,
+      "mcnemar_c": 0,
+      "mcnemar_p": 1.0
+    },
+    "SVM (RBF)": {
+      "tp": 145,
+      "fn": 0,
+      "tn": 66,
+      "fp": 0,
+      "sens": 1.0,
+      "sens_lo": 0.9741900114,
+      "sens_hi": 1.0,
+      "spec": 1.0,
+      "spec_lo": 0.9449955327,
+      "spec_hi": 1.0,
+      "ppv": 1.0,
+      "npv": 1.0,
+      "lr_pos": null,
+      "lr_neg": 0.0,
+      "ppv_pop": 1.0,
+      "ppv_pop_lo": 0.3539075861,
+      "mcnemar_b": 0,
+      "mcnemar_c": 0,
+      "mcnemar_p": 1.0
+    },
+    "KNN": {
+      "tp": 142,
+      "fn": 3,
+      "tn": 61,
+      "fp": 5,
+      "sens": 0.9793103448,
+      "sens_lo": 0.9409394849,
+      "sens_hi": 0.9929392157,
+      "spec": 0.9242424242,
+      "spec_lo": 0.8346059455,
+      "spec_hi": 0.9672084459,
+      "ppv": 0.9659863946,
+      "npv": 0.953125,
+      "lr_pos": 12.9268965517,
+      "lr_neg": 0.0223855285,
+      "ppv_pop": 0.285612702,
+      "ppv_pop_lo": 0.1496243088,
+      "mcnemar_b": 8,
+      "mcnemar_c": 0,
+      "mcnemar_p": 0.0078125
+    },
+    "Decision Tree": {
+      "tp": 134,
+      "fn": 11,
+      "tn": 49,
+      "fp": 17,
+      "sens": 0.924137931,
+      "sens_lo": 0.8692671613,
+      "sens_hi": 0.9571147104,
+      "spec": 0.7424242424,
+      "spec_lo": 0.6256667257,
+      "spec_hi": 0.8325129265,
+      "ppv": 0.8874172185,
+      "npv": 0.8166666667,
+      "lr_pos": 3.5878296146,
+      "lr_neg": 0.1021815623,
+      "ppv_pop": 0.0998806642,
+      "ppv_pop_lo": 0.0670073702,
+      "mcnemar_b": 28,
+      "mcnemar_c": 0,
+      "mcnemar_p": 7.5e-09
+    },
+    "Random Forest": {
+      "tp": 145,
+      "fn": 0,
+      "tn": 59,
+      "fp": 7,
+      "sens": 1.0,
+      "sens_lo": 0.9741900114,
+      "sens_hi": 1.0,
+      "spec": 0.8939393939,
+      "spec_lo": 0.7968747426,
+      "spec_hi": 0.9476671923,
+      "ppv": 0.9539473684,
+      "npv": 1.0,
+      "lr_pos": 9.4285714286,
+      "lr_neg": 0.0,
+      "ppv_pop": 0.2257696693,
+      "ppv_pop_lo": 0.1291702555,
+      "mcnemar_b": 7,
+      "mcnemar_c": 0,
+      "mcnemar_p": 0.015625
+    },
+    "Gradient Boosting": {
+      "tp": 145,
+      "fn": 0,
+      "tn": 61,
+      "fp": 5,
+      "sens": 1.0,
+      "sens_lo": 0.9741900114,
+      "sens_hi": 1.0,
+      "spec": 0.9242424242,
+      "spec_lo": 0.8346059455,
+      "spec_hi": 0.9672084459,
+      "ppv": 0.9666666667,
+      "npv": 1.0,
+      "lr_pos": 13.2,
+      "lr_neg": 0.0,
+      "ppv_pop": 0.289897511,
+      "ppv_pop_lo": 0.1540969041,
+      "mcnemar_b": 5,
+      "mcnemar_c": 0,
+      "mcnemar_p": 0.0625
+    },
+    "Naive Bayes": {
+      "tp": 143,
+      "fn": 2,
+      "tn": 51,
+      "fp": 15,
+      "sens": 0.9862068966,
+      "sens_lo": 0.9511064773,
+      "sens_hi": 0.9962093269,
+      "spec": 0.7727272727,
+      "spec_lo": 0.6583031596,
+      "spec_hi": 0.8571489491,
+      "ppv": 0.9050632911,
+      "npv": 0.9622641509,
+      "lr_pos": 4.3393103448,
+      "lr_neg": 0.0178498986,
+      "ppv_pop": 0.1183255394,
+      "ppv_pop_lo": 0.0792634683,
+      "mcnemar_b": 17,
+      "mcnemar_c": 0,
+      "mcnemar_p": 1.52588e-05
+    },
+    "1D CNN": {
+      "tp": 143,
+      "fn": 2,
+      "tn": 66,
+      "fp": 0,
+      "sens": 0.9862068966,
+      "sens_lo": 0.9511064773,
+      "sens_hi": 0.9962093269,
+      "spec": 1.0,
+      "spec_lo": 0.9449955327,
+      "spec_hi": 1.0,
+      "ppv": 1.0,
+      "npv": 0.9705882353,
+      "lr_pos": null,
+      "lr_neg": 0.0137931034,
+      "ppv_pop": 1.0,
+      "ppv_pop_lo": 0.3484437151,
+      "mcnemar_b": 2,
+      "mcnemar_c": 0,
+      "mcnemar_p": 0.5
+    }
+  },
+  "e1_ppv_by_prevalence": [
+    {
+      "estimate": "Q-CHAT-10 rule / LR (E1)",
+      "prevalence": 0.01,
+      "ppv": 1.0,
+      "ppv_lower": 0.1517516846
+    },
+    {
+      "estimate": "Q-CHAT-10 rule / LR (E1)",
+      "prevalence": 0.03,
+      "ppv": 1.0,
+      "ppv_lower": 0.3539075861
+    },
+    {
+      "estimate": "Q-CHAT-10 rule / LR (E1)",
+      "prevalence": 0.05,
+      "ppv": 1.0,
+      "ppv_lower": 0.4824454643
+    },
+    {
+      "estimate": "Q-CHAT-10 rule / LR (E1)",
+      "prevalence": 0.1,
+      "ppv": 1.0,
+      "ppv_lower": 0.6630615137
+    },
+    {
+      "estimate": "1D CNN (E1)",
+      "prevalence": 0.01,
+      "ppv": 1.0,
+      "ppv_lower": 0.14869057
+    },
+    {
+      "estimate": "1D CNN (E1)",
+      "prevalence": 0.03,
+      "ppv": 1.0,
+      "ppv_lower": 0.3484437151
+    },
+    {
+      "estimate": "1D CNN (E1)",
+      "prevalence": 0.05,
+      "ppv": 1.0,
+      "ppv_lower": 0.4764605732
+    },
+    {
+      "estimate": "1D CNN (E1)",
+      "prevalence": 0.1,
+      "ppv": 1.0,
+      "ppv_lower": 0.6576832688
+    },
+    {
+      "estimate": "Published Q-CHAT-10$^{a}$",
+      "prevalence": 0.01,
+      "ppv": 0.0771186441,
+      "ppv_lower": null
+    },
+    {
+      "estimate": "Published Q-CHAT-10$^{a}$",
+      "prevalence": 0.03,
+      "ppv": 0.2037313433,
+      "ppv_lower": null
+    },
+    {
+      "estimate": "Published Q-CHAT-10$^{a}$",
+      "prevalence": 0.05,
+      "ppv": 0.3033333333,
+      "ppv_lower": null
+    },
+    {
+      "estimate": "Published Q-CHAT-10$^{a}$",
+      "prevalence": 0.1,
+      "ppv": 0.4789473684,
+      "ppv_lower": null
+    }
+  ],
+  "e2_mean_sd": {
+    "1D CNN": {
+      "accuracy": {
+        "mean": 0.9969194312796208,
+        "sd": 0.003851790051598339
+      },
+      "recall (sensitivity)": {
+        "mean": 0.9968965517241379,
+        "sd": 0.004733329249332827
+      },
+      "specificity": {
+        "mean": 0.9969696969696968,
+        "sd": 0.006218050618697888
+      },
+      "f1": {
+        "mean": 0.9977532266295894,
+        "sd": 0.0028111883249515696
+      },
+      "roc_auc": {
+        "mean": 0.9999686520376176,
+        "sd": 8.373194453355266e-05
+      }
+    },
+    "Decision Tree": {
+      "accuracy": {
+        "mean": 0.895260663507109,
+        "sd": 0.02118937877831071
+      },
+      "recall (sensitivity)": {
+        "mean": 0.9144827586206896,
+        "sd": 0.020311116677010303
+      },
+      "specificity": {
+        "mean": 0.8530303030303031,
+        "sd": 0.04691950809330542
+      },
+      "f1": {
+        "mean": 0.9230709862270542,
+        "sd": 0.015507965061510337
+      },
+      "roc_auc": {
+        "mean": 0.9216065830721003,
+        "sd": 0.02429648610413067
+      }
+    },
+    "Gradient Boosting": {
+      "accuracy": {
+        "mean": 0.9829383886255924,
+        "sd": 0.010586317448385976
+      },
+      "recall (sensitivity)": {
+        "mean": 0.99,
+        "sd": 0.009353599863282772
+      },
+      "specificity": {
+        "mean": 0.9674242424242424,
+        "sd": 0.028356543640779996
+      },
+      "f1": {
+        "mean": 0.9876337006471406,
+        "sd": 0.007643838710699691
+      },
+      "roc_auc": {
+        "mean": 0.9991327063740856,
+        "sd": 0.0008789075745083093
+      }
+    },
+    "KNN": {
+      "accuracy": {
+        "mean": 0.9658767772511847,
+        "sd": 0.015726119965445127
+      },
+      "recall (sensitivity)": {
+        "mean": 0.9613793103448275,
+        "sd": 0.019038795902606754
+      },
+      "specificity": {
+        "mean": 0.9757575757575758,
+        "sd": 0.02428226391472824
+      },
+      "f1": {
+        "mean": 0.9747628335740307,
+        "sd": 0.011767294875902484
+      },
+      "roc_auc": {
+        "mean": 0.9959979101358412,
+        "sd": 0.0029366613136700684
+      }
+    },
+    "Logistic Regression": {
+      "accuracy": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "recall (sensitivity)": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "specificity": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "f1": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "roc_auc": {
+        "mean": 1.0,
+        "sd": 0.0
+      }
+    },
+    "Naive Bayes": {
+      "accuracy": {
+        "mean": 0.9511848341232227,
+        "sd": 0.013325260580064554
+      },
+      "recall (sensitivity)": {
+        "mean": 0.9827586206896551,
+        "sd": 0.011518425882121574
+      },
+      "specificity": {
+        "mean": 0.8818181818181818,
+        "sd": 0.03282930518180696
+      },
+      "f1": {
+        "mean": 0.9651383441447005,
+        "sd": 0.009482537318584908
+      },
+      "roc_auc": {
+        "mean": 0.9805381400208987,
+        "sd": 0.01593094916340058
+      }
+    },
+    "Q-CHAT-10 rule": {
+      "accuracy": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "recall (sensitivity)": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "specificity": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "f1": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "roc_auc": {
+        "mean": 1.0,
+        "sd": 4.411578959023922e-17
+      }
+    },
+    "Random Forest": {
+      "accuracy": {
+        "mean": 0.9803317535545023,
+        "sd": 0.009261033445234072
+      },
+      "recall (sensitivity)": {
+        "mean": 0.9982758620689655,
+        "sd": 0.004404595680403486
+      },
+      "specificity": {
+        "mean": 0.940909090909091,
+        "sd": 0.028196305720354163
+      },
+      "f1": {
+        "mean": 0.9859003570500284,
+        "sd": 0.006545141470741851
+      },
+      "roc_auc": {
+        "mean": 0.9992398119122257,
+        "sd": 0.0009497838452499634
+      }
+    },
+    "SVM (RBF)": {
+      "accuracy": {
+        "mean": 0.9943127962085307,
+        "sd": 0.006264837146799941
+      },
+      "recall (sensitivity)": {
+        "mean": 0.9951724137931034,
+        "sd": 0.007111003329943724
+      },
+      "specificity": {
+        "mean": 0.9924242424242424,
+        "sd": 0.010427987903207321
+      },
+      "f1": {
+        "mean": 0.9958524369443037,
+        "sd": 0.004577738636477194
+      },
+      "roc_auc": {
+        "mean": 0.9998484848484848,
+        "sd": 0.0002570193077585847
+      }
+    }
+  },
+  "e3_mean_sd": {
+    "All features | 1D CNN": {
+      "accuracy": {
+        "mean": 0.9969194312796208,
+        "sd": 0.003851790051598339
+      },
+      "f1": {
+        "mean": 0.9977532266295894,
+        "sd": 0.0028111883249515696
+      },
+      "roc_auc": {
+        "mean": 0.9999686520376176,
+        "sd": 8.373194453355266e-05
+      }
+    },
+    "All features | Logistic Regression": {
+      "accuracy": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "f1": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "roc_auc": {
+        "mean": 1.0,
+        "sd": 0.0
+      }
+    },
+    "All features | Random Forest": {
+      "accuracy": {
+        "mean": 0.9803317535545023,
+        "sd": 0.009261033445234072
+      },
+      "f1": {
+        "mean": 0.9859003570500284,
+        "sd": 0.006545141470741851
+      },
+      "roc_auc": {
+        "mean": 0.9992398119122257,
+        "sd": 0.0009497838452499634
+      }
+    },
+    "Demographics only | 1D CNN": {
+      "accuracy": {
+        "mean": 0.6862559241706161,
+        "sd": 0.003638729364691541
+      },
+      "f1": {
+        "mean": 0.8138838531395265,
+        "sd": 0.0024984476613300766
+      },
+      "roc_auc": {
+        "mean": 0.5297648902821317,
+        "sd": 0.041589989800872654
+      }
+    },
+    "Demographics only | Logistic Regression": {
+      "accuracy": {
+        "mean": 0.6741706161137441,
+        "sd": 0.013126381611006564
+      },
+      "f1": {
+        "mean": 0.8042252016689968,
+        "sd": 0.01003913591189559
+      },
+      "roc_auc": {
+        "mean": 0.5310710553814002,
+        "sd": 0.03976104086992432
+      }
+    },
+    "Demographics only | Random Forest": {
+      "accuracy": {
+        "mean": 0.5969194312796209,
+        "sd": 0.030150172057273487
+      },
+      "f1": {
+        "mean": 0.7167016929521773,
+        "sd": 0.024848452603401096
+      },
+      "roc_auc": {
+        "mean": 0.5150470219435737,
+        "sd": 0.043301707733667046
+      }
+    },
+    "Q-CHAT-10 items only | 1D CNN": {
+      "accuracy": {
+        "mean": 0.9995260663507108,
+        "sd": 0.0014587369934860083
+      },
+      "f1": {
+        "mean": 0.9996563573883162,
+        "sd": 0.001057709641324893
+      },
+      "roc_auc": {
+        "mean": 1.0,
+        "sd": 2.5470262995437506e-17
+      }
+    },
+    "Q-CHAT-10 items only | Logistic Regression": {
+      "accuracy": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "f1": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "roc_auc": {
+        "mean": 1.0,
+        "sd": 0.0
+      }
+    },
+    "Q-CHAT-10 items only | Random Forest": {
+      "accuracy": {
+        "mean": 0.981042654028436,
+        "sd": 0.00984572429832405
+      },
+      "f1": {
+        "mean": 0.9862398241723515,
+        "sd": 0.007192940412628196
+      },
+      "roc_auc": {
+        "mean": 0.9987957157784744,
+        "sd": 0.001209890262983403
+      }
+    }
+  },
+  "e4_importance": {
+    "A1": {
+      "Logistic Regression": 0.0143838384,
+      "Random Forest": 0.0170675723,
+      "1D CNN": 0.0116001393
+    },
+    "A2": {
+      "Logistic Regression": 0.0030268199,
+      "Random Forest": 0.0049411355,
+      "1D CNN": 0.0045990944
+    },
+    "A3": {
+      "Logistic Regression": 0.0067258795,
+      "Random Forest": 0.0090989202,
+      "1D CNN": 0.0077777778
+    },
+    "A4": {
+      "Logistic Regression": 0.0049773598,
+      "Random Forest": 0.006404737,
+      "1D CNN": 0.0055548589
+    },
+    "A5": {
+      "Logistic Regression": 0.0047662835,
+      "Random Forest": 0.0072685475,
+      "1D CNN": 0.0058216649
+    },
+    "A6": {
+      "Logistic Regression": 0.0031870428,
+      "Random Forest": 0.0053416928,
+      "1D CNN": 0.0051034483
+    },
+    "A7": {
+      "Logistic Regression": 0.0066144201,
+      "Random Forest": 0.0079951237,
+      "1D CNN": 0.0068394288
+    },
+    "A8": {
+      "Logistic Regression": 0.0060613027,
+      "Random Forest": 0.0095175897,
+      "1D CNN": 0.0080132358
+    },
+    "A9": {
+      "Logistic Regression": 0.003707419,
+      "Random Forest": 0.0059968652,
+      "1D CNN": 0.0045203762
+    },
+    "A10": {
+      "Logistic Regression": 0.0052852665,
+      "Random Forest": 0.0080811564,
+      "1D CNN": 0.004384535
+    },
+    "Age": {
+      "Logistic Regression": 0.0,
+      "Random Forest": -0.0001013584,
+      "1D CNN": -2.0899e-06
+    },
+    "Sex": {
+      "Logistic Regression": 0.0,
+      "Random Forest": -3.41344e-05,
+      "1D CNN": 4.5977e-05
+    },
+    "Jaundice": {
+      "Logistic Regression": 0.0,
+      "Random Forest": 2.5775e-05,
+      "1D CNN": 8.22013e-05
+    },
+    "Family ASD": {
+      "Logistic Regression": 0.0,
+      "Random Forest": -4.56287e-05,
+      "1D CNN": -4.8763e-06
+    },
+    "Ethnicity": {
+      "Logistic Regression": 6.966e-07,
+      "Random Forest": 2.43817e-05,
+      "1D CNN": -9.0561e-06
+    },
+    "Respondent": {
+      "Logistic Regression": 0.0,
+      "Random Forest": 7.6628e-06,
+      "1D CNN": -6.966e-07
+    }
+  },
+  "e4_lr_coefficients": {
+    "A1": 2.8140964508,
+    "A2": 1.933037281,
+    "A3": 2.5983037949,
+    "A4": 2.1182210445,
+    "A5": 2.326675415,
+    "A6": 2.1529729366,
+    "A7": 2.4164385796,
+    "A8": 2.14118433,
+    "A9": 2.0651051998,
+    "A10": 2.1412501335,
+    "Sex": 0.1687558591,
+    "Jaundice": -0.0355290584,
+    "Family_mem_with_ASD": 0.1154290587,
+    "Age_Mons": -0.0490799919,
+    "Ethnicity_asian": -0.0036123425,
+    "Ethnicity_black": -0.1395979226,
+    "Ethnicity_hispanic": 0.1094156802,
+    "Ethnicity_latino": -0.197659269,
+    "Ethnicity_middle eastern": -0.1127836183,
+    "Ethnicity_mixed": 0.4597379863,
+    "Ethnicity_native indian": -0.3787068427,
+    "Ethnicity_others": 0.1095443144,
+    "Ethnicity_pacifica": -0.2239199728,
+    "Ethnicity_south asian": -0.0182137024,
+    "Ethnicity_white european": 0.4048273563,
+    "Who completed the test_family member": 0.1529913545,
+    "Who completed the test_health care professional": -0.0376241654,
+    "Who completed the test_others": -0.1381237358,
+    "Who completed the test_self": 0.0317878462
+  },
+  "e5_cnn_inits": [
+    {
+      "init": 0,
+      "epochs": 94,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "init": 1,
+      "epochs": 84,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "init": 2,
+      "epochs": 67,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "init": 3,
+      "epochs": 63,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "init": 4,
+      "epochs": 56,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "init": 5,
+      "epochs": 119,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "init": 6,
+      "epochs": 96,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "init": 7,
+      "epochs": 79,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "init": 8,
+      "epochs": 93,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "init": 9,
+      "epochs": 49,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    }
+  ],
+  "e6_feature_order": [
+    {
+      "order": "Original (items first)",
+      "seed": 0,
+      "accuracy": 0.9952606635,
+      "precision": 1.0,
+      "recall (sensitivity)": 0.9931034483,
+      "specificity": 1.0,
+      "f1": 0.9965397924,
+      "roc_auc": 1.0
+    },
+    {
+      "order": "Original (items first)",
+      "seed": 1,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "order": "Original (items first)",
+      "seed": 2,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "order": "Original (items first)",
+      "seed": 3,
+      "accuracy": 0.990521327,
+      "precision": 0.9931034483,
+      "recall (sensitivity)": 0.9931034483,
+      "specificity": 0.9848484848,
+      "f1": 0.9931034483,
+      "roc_auc": 0.9998955068
+    },
+    {
+      "order": "Original (items first)",
+      "seed": 4,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "order": "Reversed (items last)",
+      "seed": 0,
+      "accuracy": 0.9952606635,
+      "precision": 0.9931506849,
+      "recall (sensitivity)": 1.0,
+      "specificity": 0.9848484848,
+      "f1": 0.9965635739,
+      "roc_auc": 0.9998955068
+    },
+    {
+      "order": "Random permutation 1",
+      "seed": 0,
+      "accuracy": 0.990521327,
+      "precision": 0.9931034483,
+      "recall (sensitivity)": 0.9931034483,
+      "specificity": 0.9848484848,
+      "f1": 0.9931034483,
+      "roc_auc": 0.9993730408
+    },
+    {
+      "order": "Random permutation 2",
+      "seed": 0,
+      "accuracy": 0.990521327,
+      "precision": 0.9931034483,
+      "recall (sensitivity)": 0.9931034483,
+      "specificity": 0.9848484848,
+      "f1": 0.9931034483,
+      "roc_auc": 0.9998955068
+    },
+    {
+      "order": "Random permutation 3",
+      "seed": 0,
+      "accuracy": 0.9857819905,
+      "precision": 1.0,
+      "recall (sensitivity)": 0.9793103448,
+      "specificity": 1.0,
+      "f1": 0.9895470383,
+      "roc_auc": 0.9997910136
+    },
+    {
+      "order": "Reversed (items last)",
+      "seed": 1,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "order": "Random permutation 1",
+      "seed": 1,
+      "accuracy": 0.9857819905,
+      "precision": 0.9797297297,
+      "recall (sensitivity)": 1.0,
+      "specificity": 0.9545454545,
+      "f1": 0.9897610922,
+      "roc_auc": 0.9997910136
+    },
+    {
+      "order": "Random permutation 2",
+      "seed": 1,
+      "accuracy": 0.981042654,
+      "precision": 0.9731543624,
+      "recall (sensitivity)": 1.0,
+      "specificity": 0.9393939394,
+      "f1": 0.9863945578,
+      "roc_auc": 0.9997910136
+    },
+    {
+      "order": "Random permutation 3",
+      "seed": 1,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "order": "Reversed (items last)",
+      "seed": 2,
+      "accuracy": 0.9952606635,
+      "precision": 0.9931506849,
+      "recall (sensitivity)": 1.0,
+      "specificity": 0.9848484848,
+      "f1": 0.9965635739,
+      "roc_auc": 1.0
+    },
+    {
+      "order": "Random permutation 1",
+      "seed": 2,
+      "accuracy": 0.9857819905,
+      "precision": 0.9930555556,
+      "recall (sensitivity)": 0.9862068966,
+      "specificity": 0.9848484848,
+      "f1": 0.9896193772,
+      "roc_auc": 0.9995820272
+    },
+    {
+      "order": "Random permutation 2",
+      "seed": 2,
+      "accuracy": 0.9857819905,
+      "precision": 0.9930555556,
+      "recall (sensitivity)": 0.9862068966,
+      "specificity": 0.9848484848,
+      "f1": 0.9896193772,
+      "roc_auc": 0.9985370951
+    },
+    {
+      "order": "Random permutation 3",
+      "seed": 2,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "order": "Reversed (items last)",
+      "seed": 3,
+      "accuracy": 0.9952606635,
+      "precision": 1.0,
+      "recall (sensitivity)": 0.9931034483,
+      "specificity": 1.0,
+      "f1": 0.9965397924,
+      "roc_auc": 0.9998955068
+    },
+    {
+      "order": "Random permutation 1",
+      "seed": 3,
+      "accuracy": 0.990521327,
+      "precision": 0.9931034483,
+      "recall (sensitivity)": 0.9931034483,
+      "specificity": 0.9848484848,
+      "f1": 0.9931034483,
+      "roc_auc": 0.9985370951
+    },
+    {
+      "order": "Random permutation 2",
+      "seed": 3,
+      "accuracy": 0.990521327,
+      "precision": 0.9931034483,
+      "recall (sensitivity)": 0.9931034483,
+      "specificity": 0.9848484848,
+      "f1": 0.9931034483,
+      "roc_auc": 0.9997910136
+    },
+    {
+      "order": "Random permutation 3",
+      "seed": 3,
+      "accuracy": 0.981042654,
+      "precision": 0.9795918367,
+      "recall (sensitivity)": 0.9931034483,
+      "specificity": 0.9545454545,
+      "f1": 0.9863013699,
+      "roc_auc": 0.999477534
+    },
+    {
+      "order": "Reversed (items last)",
+      "seed": 4,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    },
+    {
+      "order": "Random permutation 1",
+      "seed": 4,
+      "accuracy": 0.990521327,
+      "precision": 1.0,
+      "recall (sensitivity)": 0.9862068966,
+      "specificity": 1.0,
+      "f1": 0.9930555556,
+      "roc_auc": 0.999477534
+    },
+    {
+      "order": "Random permutation 2",
+      "seed": 4,
+      "accuracy": 0.990521327,
+      "precision": 1.0,
+      "recall (sensitivity)": 0.9862068966,
+      "specificity": 1.0,
+      "f1": 0.9930555556,
+      "roc_auc": 0.9998955068
+    },
+    {
+      "order": "Random permutation 3",
+      "seed": 4,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall (sensitivity)": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0
+    }
+  ],
+  "cnn_parameters": 76161,
+  "environment": {
+    "python": "3.11.15",
+    "tensorflow": "2.21.0",
+    "sklearn": "1.9.1",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+    "ncpu": 4,
+    "os": "Linux 6.18.44"
+  }
+}

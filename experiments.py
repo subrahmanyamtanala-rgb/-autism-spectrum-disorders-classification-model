@@ -316,19 +316,21 @@ def table_ppv(clin: pd.DataFrame) -> tuple[str, pd.DataFrame]:
             rows.append({"estimate": label, "prevalence": prev, "ppv": ppv_at(sens, spec, prev),
                          "ppv_lower": None if sens_lo is None else ppv_at(sens_lo, spec_lo, prev)})
     df = pd.DataFrame(rows)
-    head = " & ".join(f"{p * 100:.0f}\\%" for p in PREVALENCES)
+    labels = list(dict.fromkeys(df.estimate))
+    short = {labels[0]: "Rule / LR (E1)", labels[1]: "1D CNN (E1)", labels[2]: r"Published$^{a}$"}
     lines = [r"\begin{table}[t]", r"\centering",
              r"\caption{Positive predictive value across illustrative prevalences. For the E1 estimates each cell gives "
              r"the point estimate / the value at the lower Wilson bounds of sensitivity and specificity. "
              rf"$^{{a}}$Sensitivity {PUBLISHED_SENS:.2f} and specificity {PUBLISHED_SPEC:.2f} at the published cut-point "
              r"\cite{allison2012}, for reference.}", r"\label{tab:ppv}", r"\footnotesize",
-             r"\setlength{\tabcolsep}{3pt}", r"\begin{tabular}{l" + "c" * len(PREVALENCES) + "}", r"\toprule",
-             r"Estimate & \multicolumn{" + str(len(PREVALENCES)) + r"}{c}{Prevalence} \\",
-             r"\cmidrule(lr){2-" + str(len(PREVALENCES) + 1) + "}", " & " + head + r" \\", r"\midrule"]
-    for label, g in df.groupby("estimate", sort=False):
-        cells = [f"{r.ppv:.3f}" + ("" if r.ppv_lower is None or pd.isna(r.ppv_lower) else f" / {r.ppv_lower:.3f}")
-                 for r in g.itertuples()]
-        lines.append(f"{label} & " + " & ".join(cells) + r" \\")
+             r"\setlength{\tabcolsep}{4pt}", r"\begin{tabular}{l" + "c" * len(labels) + "}", r"\toprule",
+             "Prevalence & " + " & ".join(short[lb] for lb in labels) + r" \\", r"\midrule"]
+    for prev in PREVALENCES:
+        cells = []
+        for lb in labels:
+            r = df[(df.estimate == lb) & (df.prevalence == prev)].iloc[0]
+            cells.append(f"{r.ppv:.3f}" + ("" if r.ppv_lower is None or pd.isna(r.ppv_lower) else f" / {r.ppv_lower:.3f}"))
+        lines.append(f"{prev * 100:.0f}\\% & " + " & ".join(cells) + r" \\")
     lines += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
     return "\n".join(lines), df
 
