@@ -1,0 +1,14 @@
+{
+  "source": "synthetic",
+  "n": 1054,
+  "n_asd": 722,
+  "n_no": 332,
+  "n_features_encoded": 29,
+  "male_pct": 72.58064516129032,
+  "age_mean": 23.883301707779886,
+  "age_std": 7.123696535945113,
+  "jaundice_pct": 28.178368121442126,
+  "family_pct": 15.844402277039848,
+  "cnn_epochs": 50,
+  "cnn_params": 76161
+}

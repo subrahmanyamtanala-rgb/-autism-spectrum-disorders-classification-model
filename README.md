@@ -80,6 +80,19 @@ models and Naive Bayes do worse because they approximate that sum with axis-alig
 Expect the same pattern on the real CSV. For a harder, more clinically meaningful benchmark, you could predict clinical
 diagnosis instead of the questionnaire-derived label, or train without some of the items.
 
+## Research paper
+
+`paper/` contains a manuscript in Elsevier double-column format (`elsarticle`, `5p`): `main.tex` and the compiled
+`main.pdf`. Every number, table and figure in it is produced by `experiments.py`, which covers repeated splits, a
+feature-subset ablation and permutation importance. To rebuild the paper on the real data:
+
+```bash
+python experiments.py --data "data/Toddler Autism dataset July 2018.csv"   # ~7 min on CPU
+cd paper && pdflatex main.tex && pdflatex main.tex
+```
+
+When run on real data, the paper automatically drops its "synthetic surrogate" notes.
+
 ## Project layout
 
 ```
@@ -88,6 +101,8 @@ asd/models.py      classical ML models and the 1D CNN
 asd/evaluate.py    metrics and plots
 train.py           training and comparison CLI
 predict.py         single-toddler screening CLI
+experiments.py     experiments, tables and figures for the paper
+paper/             Elsevier LaTeX manuscript
 tests/             pytest suite
 ```
 

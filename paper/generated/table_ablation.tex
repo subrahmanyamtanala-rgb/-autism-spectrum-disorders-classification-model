@@ -1,0 +1,27 @@
+\begin{table}[t]
+\centering
+\caption{Feature-subset ablation (mean $\pm$ std over 5 splits).}
+\label{tab:ablation}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccc}
+\toprule
+Model & Accuracy & F1 & AUC \\
+\midrule
+\multicolumn{4}{l}{\textit{Q-CHAT-10 items only}} \\
+\quad Logistic Regression & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 \\
+\quad Random Forest & 0.979 $\pm$ 0.006 & 0.985 $\pm$ 0.005 & 0.998 $\pm$ 0.002 \\
+\quad 1D CNN & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 \\
+\addlinespace
+\multicolumn{4}{l}{\textit{Demographics only}} \\
+\quad Logistic Regression & 0.680 $\pm$ 0.007 & 0.808 $\pm$ 0.005 & 0.541 $\pm$ 0.046 \\
+\quad Random Forest & 0.614 $\pm$ 0.026 & 0.732 $\pm$ 0.024 & 0.530 $\pm$ 0.017 \\
+\quad 1D CNN & 0.687 $\pm$ 0.000 & 0.815 $\pm$ 0.000 & 0.541 $\pm$ 0.031 \\
+\addlinespace
+\multicolumn{4}{l}{\textit{All features}} \\
+\quad Logistic Regression & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 \\
+\quad Random Forest & 0.980 $\pm$ 0.005 & 0.986 $\pm$ 0.004 & 0.999 $\pm$ 0.001 \\
+\quad 1D CNN & 0.999 $\pm$ 0.002 & 0.999 $\pm$ 0.002 & 1.000 $\pm$ 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table}
