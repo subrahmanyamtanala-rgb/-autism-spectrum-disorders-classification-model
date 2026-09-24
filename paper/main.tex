@@ -291,7 +291,7 @@ Table~\ref{tab:ablation} shows that the items carry the predictive signal for th
 
 \subsection{Feature importance (E4)}
 
-Fig.~\ref{fig:imp}a shows permutation importance with error bars (SD over \NImpSplits{} splits $\times$ \NPerm{} permutations). For all three models, every item has a positive importance. For the CNN it ranges from \MinItemImpCNN{} to \MaxItemImpCNN{} (largest for \TopItemCNN). No demographic or history variable exceeds \MaxDemoImp{} in absolute value for any model. The LR coefficients (Fig.~\ref{fig:imp}b) tell the same story. The item coefficients all lie between \ItemCoefMin{} and \ItemCoefMax, close to the equal weights of the scoring rule, while no demographic coefficient exceeds \DemoCoefMax{} in magnitude. These rankings describe how the models reproduce an additive rule on synthetic data. They should not be read as a clinical ordering of the items.
+Fig.~\ref{fig:imp}a shows permutation importance with error bars (SD over \NImpSplits{} splits $\times$ \NPerm{} permutations). For all three models, every item has a positive importance. For the CNN it ranges from \MinItemImpCNN{} to \MaxItemImpCNN{} (largest for \TopItemCNN). The largest absolute importance of any demographic or history variable, for any model, is \MaxDemoImp. The LR coefficients (Fig.~\ref{fig:imp}b) tell the same story. The item coefficients all lie between \ItemCoefMin{} and \ItemCoefMax, close to the equal weights of the scoring rule, while no demographic coefficient exceeds \DemoCoefMax{} in magnitude. These rankings describe how the models reproduce an additive rule on synthetic data. They should not be read as a clinical ordering of the items.
 
 \begin{figure*}[t]
 \centering

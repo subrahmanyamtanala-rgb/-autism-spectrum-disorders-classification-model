@@ -434,7 +434,7 @@ def main():
     tex, n_params = table_params(n_feat)
     write(os.path.join(gen, "table_params.tex"), tex)
     env = environment()
-    item_imp = imp.loc[[c for c in imp.index if c.startswith("A")]]
+    item_imp = imp.loc[ITEM_COLS]
     demo_imp = imp.drop(item_imp.index)
     cnn_row = agg.loc["1D CNN"]
     order = agg[("f1", "mean")].sort_values(ascending=False).index
@@ -471,7 +471,7 @@ def main():
         "TopItemCNN": item_imp[("1D CNN", "mean")].idxmax(),
         "MinItemImpCNN": f3(item_imp[("1D CNN", "mean")].min()),
         "MaxItemImpCNN": f3(item_imp[("1D CNN", "mean")].max()),
-        "MaxDemoImp": f3(demo_imp.xs("mean", axis=1, level=1).abs().max().max()),
+        "MaxDemoImp": (lambda v: "$<$0.001" if v < 0.0005 else f3(v))(demo_imp.xs("mean", axis=1, level=1).abs().max().max()),
         "ItemCoefMin": f"{lr_coef[ITEM_COLS].min():.2f}", "ItemCoefMax": f"{lr_coef[ITEM_COLS].max():.2f}",
         "DemoCoefMax": f"{max(lr_coef[BINARY_COLS + NUMERIC_COLS].abs().max(), onehot_max):.2f}",
         "InitAccMean": f3(e5.accuracy.mean()), "InitAccStd": f3(e5.accuracy.std()),
