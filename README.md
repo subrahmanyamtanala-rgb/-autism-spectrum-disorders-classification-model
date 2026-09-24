@@ -83,15 +83,26 @@ diagnosis instead of the questionnaire-derived label, or train without some of t
 ## Research paper
 
 `paper/` contains a manuscript in Elsevier double-column format (`elsarticle`, `5p`): `main.tex` and the compiled
-`main.pdf`. Every number, table and figure in it is produced by `experiments.py`, which covers repeated splits, a
-feature-subset ablation and permutation importance. To rebuild the paper on the real data:
+`main.pdf`. It is framed as a methodological study on a synthetic surrogate: **every number in it comes from
+synthetic data**, and it says so throughout. `paper/response_to_reviewers.md` answers the first round of review.
+
+`experiments.py` produces every number, table and figure:
+
+| Experiment | What it does |
+|---|---|
+| E1 | One held-out split: confusion matrices, ROC curves with a zoomed inset, Wilson 95% CIs, PPV/NPV/LR+/LR-, PPV at 3% prevalence, exact McNemar tests against logistic regression |
+| E2 | All 8 models over 20 repeated stratified splits (mean, SD, percentile range) |
+| E3 | Feature-subset ablation (items only / demographics only / all) over the same splits |
+| E4 | Permutation importance (LR, RF, CNN; 5 splits x 30 permutations), plus logistic-regression coefficients |
+| E5 | CNN retrained from 10 initialisations (learning-curve bands) |
 
 ```bash
-python experiments.py --data "data/Toddler Autism dataset July 2018.csv"   # ~7 min on CPU
+python experiments.py --synthetic                      # ~45 min on a 4-core CPU
 cd paper && pdflatex main.tex && pdflatex main.tex
 ```
 
-When run on real data, the paper automatically drops its "synthetic surrogate" notes.
+Running `experiments.py --data "data/Toddler Autism dataset July 2018.csv"` regenerates all numbers on the public
+data, but the paper's text then needs rewriting: it describes the synthetic surrogate throughout.
 
 ## Project layout
 

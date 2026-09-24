@@ -65,18 +65,24 @@ def build_cnn(n_features: int, learning_rate: float = 1e-3):
 
 
 def train_cnn(X_train, y_train, epochs: int = 150, batch_size: int = 32, seed: int = 42, verbose: int = 0):
-    """Train the CNN with a 15% validation split and early stopping."""
+    """Train the CNN with a stratified 15% validation split, early stopping and deterministic ops."""
     import tensorflow as tf
 
+    from sklearn.model_selection import train_test_split
+
     tf.keras.utils.set_random_seed(seed)
+    tf.config.experimental.enable_op_determinism()
+    # Stratified hold-out so the validation set keeps the class ratio.
+    X_fit, X_val, y_fit, y_val = train_test_split(
+        X_train, y_train, test_size=0.15, stratify=y_train, random_state=seed)
     model = build_cnn(X_train.shape[1])
     callbacks = [
         tf.keras.callbacks.EarlyStopping(monitor="val_loss", patience=20, restore_best_weights=True),
         tf.keras.callbacks.ReduceLROnPlateau(monitor="val_loss", factor=0.5, patience=5, min_lr=1e-5),
     ]
     history = model.fit(
-        X_train[..., np.newaxis], y_train,
-        validation_split=0.15, epochs=epochs, batch_size=batch_size,
+        X_fit[..., np.newaxis], y_fit,
+        validation_data=(X_val[..., np.newaxis], y_val), epochs=epochs, batch_size=batch_size,
         callbacks=callbacks, verbose=verbose,
     )
     return model, history.history

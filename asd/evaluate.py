@@ -48,12 +48,23 @@ def plot_confusion_matrices(results: dict, y_true, path: str) -> None:
     plt.close(fig)
 
 
-def plot_roc(results: dict, y_true, path: str) -> None:
+def plot_roc(results: dict, y_true, path: str, zoom: bool = False) -> None:
+    """ROC curves; with zoom=True an inset magnifies the top-left corner."""
     fig, ax = plt.subplots(figsize=(6.5, 5.5))
+    curves = {name: roc_curve(y_true, proba)[:2] for name, proba in results.items()}
     for name, proba in results.items():
-        fpr, tpr, _ = roc_curve(y_true, proba)
+        fpr, tpr = curves[name]
         ax.plot(fpr, tpr, lw=1.6, label=f"{name} (AUC={roc_auc_score(y_true, proba):.3f})")
     ax.plot([0, 1], [0, 1], "--", color="grey", lw=1)
+    if zoom:
+        ins = ax.inset_axes([0.38, 0.42, 0.42, 0.36])
+        for fpr, tpr in curves.values():
+            ins.plot(fpr, tpr, lw=1.4)
+        ins.set_xlim(-0.005, 0.25)
+        ins.set_ylim(0.75, 1.005)
+        ins.tick_params(labelsize=7)
+        ins.set_title("zoom: FPR 0-0.25, TPR 0.75-1", fontsize=7)
+        ax.indicate_inset_zoom(ins, edgecolor="grey")
     ax.set_xlabel("False positive rate")
     ax.set_ylabel("True positive rate")
     ax.set_title("ROC curves - test set")
