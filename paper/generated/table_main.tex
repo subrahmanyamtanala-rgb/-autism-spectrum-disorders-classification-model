@@ -1,20 +1,20 @@
 \begin{table*}[t]
 \centering
-\caption{Test-set performance of all classifiers over 5 stratified 80/20 splits (mean $\pm$ standard deviation). Sorted by F1-score.}
+\caption{Test-set performance over 20 repeated stratified 80/20 splits of the synthetic dataset: mean $\pm$ SD, and the 2.5th--97.5th percentile range of accuracy across splits. Rows are sorted by F1-score.}
 \label{tab:main}
 \small
 \begin{tabular}{lcccccc}
 \toprule
-Model & Acc. & Prec. & Sens. & Spec. & F1 & AUC \\
+Model & Accuracy & Acc.\ range & Sensitivity & Specificity & F1 & AUC \\
 \midrule
-Logistic Regression & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 \\
-1D CNN & 0.999 $\pm$ 0.002 & 1.000 $\pm$ 0.000 & 0.999 $\pm$ 0.003 & 1.000 $\pm$ 0.000 & 0.999 $\pm$ 0.002 & 1.000 $\pm$ 0.000 \\
-SVM (RBF) & 0.992 $\pm$ 0.007 & 0.997 $\pm$ 0.004 & 0.992 $\pm$ 0.009 & 0.994 $\pm$ 0.008 & 0.994 $\pm$ 0.005 & 1.000 $\pm$ 0.000 \\
-Gradient Boosting & 0.984 $\pm$ 0.011 & 0.990 $\pm$ 0.011 & 0.986 $\pm$ 0.011 & 0.979 $\pm$ 0.025 & 0.988 $\pm$ 0.008 & 0.999 $\pm$ 0.001 \\
-Random Forest & 0.980 $\pm$ 0.005 & 0.975 $\pm$ 0.012 & 0.997 $\pm$ 0.006 & 0.942 $\pm$ 0.027 & 0.986 $\pm$ 0.004 & 0.999 $\pm$ 0.001 \\
-KNN & 0.967 $\pm$ 0.018 & 0.994 $\pm$ 0.008 & 0.957 $\pm$ 0.025 & 0.988 $\pm$ 0.017 & 0.975 $\pm$ 0.013 & 0.996 $\pm$ 0.003 \\
-Naive Bayes & 0.952 $\pm$ 0.018 & 0.951 $\pm$ 0.015 & 0.981 $\pm$ 0.011 & 0.888 $\pm$ 0.035 & 0.965 $\pm$ 0.013 & 0.987 $\pm$ 0.010 \\
-Decision Tree & 0.879 $\pm$ 0.019 & 0.918 $\pm$ 0.023 & 0.905 $\pm$ 0.020 & 0.821 $\pm$ 0.055 & 0.911 $\pm$ 0.014 & 0.901 $\pm$ 0.025 \\
+Logistic Regression & 1.000 $\pm$ 0.000 & 1.000--1.000 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 \\
+1D CNN & 0.997 $\pm$ 0.004 & 0.991--1.000 & 0.997 $\pm$ 0.005 & 0.997 $\pm$ 0.006 & 0.998 $\pm$ 0.003 & 1.000 $\pm$ 0.000 \\
+SVM (RBF) & 0.994 $\pm$ 0.006 & 0.981--1.000 & 0.995 $\pm$ 0.007 & 0.992 $\pm$ 0.010 & 0.996 $\pm$ 0.005 & 1.000 $\pm$ 0.000 \\
+Gradient Boosting & 0.983 $\pm$ 0.011 & 0.967--1.000 & 0.990 $\pm$ 0.009 & 0.967 $\pm$ 0.028 & 0.988 $\pm$ 0.008 & 0.999 $\pm$ 0.001 \\
+Random Forest & 0.980 $\pm$ 0.009 & 0.960--0.991 & 0.998 $\pm$ 0.004 & 0.941 $\pm$ 0.028 & 0.986 $\pm$ 0.007 & 0.999 $\pm$ 0.001 \\
+KNN & 0.966 $\pm$ 0.016 & 0.936--0.991 & 0.961 $\pm$ 0.019 & 0.976 $\pm$ 0.024 & 0.975 $\pm$ 0.012 & 0.996 $\pm$ 0.003 \\
+Naive Bayes & 0.951 $\pm$ 0.013 & 0.926--0.969 & 0.983 $\pm$ 0.012 & 0.882 $\pm$ 0.033 & 0.965 $\pm$ 0.009 & 0.981 $\pm$ 0.016 \\
+Decision Tree & 0.895 $\pm$ 0.021 & 0.857--0.934 & 0.914 $\pm$ 0.020 & 0.853 $\pm$ 0.047 & 0.923 $\pm$ 0.016 & 0.922 $\pm$ 0.024 \\
 \bottomrule
 \end{tabular}
 \end{table*}

@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\caption{Screening metrics on the E1 test split ($n=211$: 145 positive, 66 negative) with Wilson 95\% confidence intervals. PPV and NPV are at the dataset's prevalence; PPV$_{3\%}$ re-weights the same sensitivity and specificity to a 3\% population prevalence (point estimate / value at the lower CI bounds). $p$: exact McNemar test against logistic regression.}
+\label{tab:clinical}
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lcccccccc}
+\toprule
+Model & Sensitivity (95\% CI) & Specificity (95\% CI) & PPV & NPV & LR+ & LR$-$ & PPV$_{3\%}$ & $p$ \\
+\midrule
+Logistic Regression & 1.000 (0.974--1.000) & 1.000 (0.945--1.000) & 1.000 & 1.000 & $\infty$ & 0.000 & 1.000 / 0.354 & -- \\
+SVM (RBF) & 1.000 (0.974--1.000) & 1.000 (0.945--1.000) & 1.000 & 1.000 & $\infty$ & 0.000 & 1.000 / 0.354 & 1.000 \\
+1D CNN & 0.986 (0.951--0.996) & 1.000 (0.945--1.000) & 1.000 & 0.971 & $\infty$ & 0.014 & 1.000 / 0.348 & 0.500 \\
+Gradient Boosting & 1.000 (0.974--1.000) & 0.924 (0.835--0.967) & 0.967 & 1.000 & 13.2 & 0.000 & 0.290 / 0.154 & 0.062 \\
+Random Forest & 1.000 (0.974--1.000) & 0.894 (0.797--0.948) & 0.954 & 1.000 & 9.4 & 0.000 & 0.226 / 0.129 & 0.016 \\
+KNN & 0.979 (0.941--0.993) & 0.924 (0.835--0.967) & 0.966 & 0.953 & 12.9 & 0.022 & 0.286 / 0.150 & 0.008 \\
+Naive Bayes & 0.986 (0.951--0.996) & 0.773 (0.658--0.857) & 0.905 & 0.962 & 4.3 & 0.018 & 0.118 / 0.079 & $<$0.001 \\
+Decision Tree & 0.924 (0.869--0.957) & 0.742 (0.626--0.833) & 0.887 & 0.817 & 3.6 & 0.102 & 0.100 / 0.067 & $<$0.001 \\
+\bottomrule
+\end{tabular}
+\end{table*}
