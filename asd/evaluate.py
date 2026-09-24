@@ -27,9 +27,9 @@ def metrics(y_true, proba, threshold: float = 0.5) -> dict:
 
 def plot_confusion_matrices(results: dict, y_true, path: str) -> None:
     n = len(results)
-    cols = 4
+    cols = 5 if n > 8 else 4
     rows = int(np.ceil(n / cols))
-    fig, axes = plt.subplots(rows, cols, figsize=(4 * cols, 3.6 * rows))
+    fig, axes = plt.subplots(rows, cols, figsize=(3.6 * cols, 3.4 * rows))
     for ax, (name, proba) in zip(np.ravel(axes), results.items()):
         cm = confusion_matrix(y_true, (proba >= 0.5).astype(int), labels=[0, 1])
         ax.imshow(cm, cmap="Blues")

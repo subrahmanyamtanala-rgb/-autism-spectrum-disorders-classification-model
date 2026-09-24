@@ -83,26 +83,31 @@ diagnosis instead of the questionnaire-derived label, or train without some of t
 ## Research paper
 
 `paper/` contains a manuscript in Elsevier double-column format (`elsarticle`, `5p`): `main.tex` and the compiled
-`main.pdf`. It is framed as a methodological study on a synthetic surrogate: **every number in it comes from
-synthetic data**, and it says so throughout. `paper/response_to_reviewers.md` answers the first round of review.
+`main.pdf`. It is a methodological study on a **synthetic benchmark**; every number in it comes from synthetic data,
+and the paper says so throughout. `paper/response_to_reviewers.md` and `paper/response_to_reviewers_round2.md`
+answer the two review rounds.
 
 `experiments.py` produces every number, table and figure:
 
 | Experiment | What it does |
 |---|---|
-| E1 | One held-out split: confusion matrices, ROC curves with a zoomed inset, Wilson 95% CIs, PPV/NPV/LR+/LR-, PPV at 3% prevalence, exact McNemar tests against logistic regression |
-| E2 | All 8 models over 20 repeated stratified splits (mean, SD, percentile range) |
+| E1 | One held-out split: the direct Q-CHAT-10 rule and 8 models; confusion matrices, ROC with zoom inset, Wilson 95% CIs, PPV/NPV/LR+/LR-, exact McNemar tests against the rule, PPV at 1/3/5/10% prevalence |
+| E2 | Rule and all 8 models over 20 repeated stratified 80/20 holdout splits (mean, SD, percentile range) |
 | E3 | Feature-subset ablation (items only / demographics only / all) over the same splits |
-| E4 | Permutation importance (LR, RF, CNN; 5 splits x 30 permutations), plus logistic-regression coefficients |
-| E5 | CNN retrained from 10 initialisations (learning-curve bands) |
+| E4 | Permutation importance (LR, RF, CNN; 5 splits x 30 permutations) plus logistic-regression coefficients |
+| E5 | CNN retrained from 10 initialisations (seeds 1000-1009), learning-curve bands |
+| E6 | CNN input-column order: original, reversed, 3 random permutations (first 5 splits) |
+
+All results also go to `paper/generated/results_summary.json` (machine-readable) and per-experiment CSVs.
 
 ```bash
-python experiments.py --synthetic                      # ~45 min on a 4-core CPU
+pip install -r requirements-lock.txt      # exact versions used for the paper (Python 3.11, CPU)
+python experiments.py --synthetic         # ~1 h on a 4-core CPU
 cd paper && pdflatex main.tex && pdflatex main.tex
 ```
 
-Running `experiments.py --data "data/Toddler Autism dataset July 2018.csv"` regenerates all numbers on the public
-data, but the paper's text then needs rewriting: it describes the synthetic surrogate throughout.
+Running `experiments.py --data "data/Toddler Autism dataset July 2018.csv"` applies the same pipeline to the public
+data, but the paper's text would then need rewriting: it describes the synthetic benchmark throughout.
 
 ## Project layout
 
@@ -112,7 +117,8 @@ asd/models.py      classical ML models and the 1D CNN
 asd/evaluate.py    metrics and plots
 train.py           training and comparison CLI
 predict.py         single-toddler screening CLI
-experiments.py     experiments, tables and figures for the paper
+experiments.py     experiments E1-E6, tables and figures for the paper
+requirements-lock.txt  exact package versions used for the paper
 paper/             Elsevier LaTeX manuscript
 tests/             pytest suite
 ```

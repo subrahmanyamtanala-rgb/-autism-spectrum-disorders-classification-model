@@ -30,6 +30,32 @@ def ml_models(seed: int = 42) -> dict:
     }
 
 
+class QChatRule:
+    """Direct Q-CHAT-10 scoring, no learning: positive iff the item sum exceeds `cutoff`.
+
+    Items must be the first ten encoded columns (true for asd.data.build_preprocessor).
+    predict_proba is a steep logistic of the score, so the 0.5 threshold falls exactly
+    between `cutoff` and `cutoff + 1` and ROC-AUC is computed on the score's ranking.
+    """
+
+    def __init__(self, n_items: int = 10, cutoff: int = 3):
+        self.n_items = n_items
+        self.cutoff = cutoff
+
+    def fit(self, X, y=None):
+        return self
+
+    def score(self, X) -> np.ndarray:
+        return np.asarray(X)[:, : self.n_items].sum(axis=1)
+
+    def predict_proba(self, X) -> np.ndarray:
+        p = 1.0 / (1.0 + np.exp(-4.0 * (self.score(X) - self.cutoff - 0.5)))
+        return np.column_stack([1 - p, p])
+
+    def predict(self, X) -> np.ndarray:
+        return (self.score(X) > self.cutoff).astype(int)
+
+
 def build_cnn(n_features: int, learning_rate: float = 1e-3):
     """1D CNN that treats the encoded feature vector as a length-n sequence.
 

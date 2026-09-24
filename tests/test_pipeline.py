@@ -3,7 +3,7 @@ import pytest
 
 from asd.data import ITEM_COLS, TARGET_COL, clean, make_synthetic, prepare
 from asd.evaluate import metrics
-from asd.models import build_cnn, cnn_predict_proba, ml_models, train_cnn
+from asd.models import QChatRule, build_cnn, cnn_predict_proba, ml_models, train_cnn
 
 
 @pytest.fixture(scope="module")
@@ -43,3 +43,9 @@ def test_cnn_builds_and_trains(ds):
     proba = cnn_predict_proba(model, ds.X_test)
     assert proba.shape == (len(ds.y_test),)
     assert metrics(ds.y_test, proba)["accuracy"] > 0.8
+
+
+def test_qchat_rule_reproduces_label(ds):
+    rule = QChatRule().fit(ds.X_train)
+    assert (rule.predict(ds.X_test) == ds.y_test).all()
+    assert metrics(ds.y_test, rule.predict_proba(ds.X_test)[:, 1])["roc_auc"] == 1.0
